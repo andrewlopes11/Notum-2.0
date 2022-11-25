@@ -25,7 +25,7 @@ class UnidadeAdminstrativaController extends Controller
      */
     public function create()
     {
-        //
+        return view('unidade_administrativa.create');
     }
 
     /**
@@ -36,7 +36,14 @@ class UnidadeAdminstrativaController extends Controller
      */
     public function store(StoreUnidadeAdminstrativaRequest $request)
     {
-        //
+        $unidade_administrativa = new UnidadeAdminstrativa();
+
+        $unidade_administrativa->descricao = $request->descricao;
+        $unidade_administrativa->setor_id = $request->setor_id;
+
+        $unidade_administrativa->save();
+
+        return redirect(Route('home'));
     }
 
     /**

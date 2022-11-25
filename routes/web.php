@@ -22,7 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+
 Route::get('/acaos', [AcaoController::class, 'create'])->name('acao.create');
 Route::post('/acaos_store', [AcaoController::class, 'store'])->name('acao.store');
 
+
 Route::get('/unidade_administrativa',[UnidadeAdminstrativaController::class, 'create'])->name('unidade_administrativa.create');
+Route::post('/unidade_administrativa_store',[UnidadeAdminstrativaController::class, 'store'])->name('unidade_administrativa.store');

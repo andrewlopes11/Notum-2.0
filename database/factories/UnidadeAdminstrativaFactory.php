@@ -17,7 +17,8 @@ class UnidadeAdminstrativaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "descricao" => $this->faker->name(),
+            "setor_id" => $this->faker->integer()
         ];
     }
 }

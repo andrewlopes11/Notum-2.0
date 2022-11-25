@@ -14,10 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('unidade_administrativas', function (Blueprint $table) {
+            
             $table->id();
             $table->string('descricao');
+
+
             $table->integer('setor_id');
             $table->foreign('setor_id')->references('id')->on('setors');
+
+            
             $table->timestamps();
         });
     }
