@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UnidadeAdminstrativa;
-use App\Http\Requests\StoreUnidadeAdminstrativaRequest;
-use App\Http\Requests\UpdateUnidadeAdminstrativaRequest;
+use App\Http\Requests\StoreUnidadeAdministrativaRequest;
+use App\Http\Requests\UpdateUnidadeAdministrativaRequest;
+use App\Models\UnidadeAdministrativa;
 
-class UnidadeAdminstrativaController extends Controller
+class UnidadeAdministrativaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class UnidadeAdminstrativaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUnidadeAdminstrativaRequest  $request
+     * @param  \App\Http\Requests\StoreUnidadeAdministrativaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUnidadeAdminstrativaRequest $request)
+    public function store(StoreUnidadeAdministrativaRequest $request)
     {
         $unidade_administrativa = new UnidadeAdminstrativa();
 
@@ -49,10 +49,10 @@ class UnidadeAdminstrativaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UnidadeAdminstrativa  $unidadeAdminstrativa
+     * @param  \App\Models\UnidadeAdministrativa  $unidadeAdministrativa
      * @return \Illuminate\Http\Response
      */
-    public function show(UnidadeAdminstrativa $unidadeAdminstrativa)
+    public function show(UnidadeAdministrativa $unidadeAdministrativa)
     {
         //
     }
@@ -60,10 +60,10 @@ class UnidadeAdminstrativaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\UnidadeAdminstrativa  $unidadeAdminstrativa
+     * @param  \App\Models\UnidadeAdministrativa  $unidadeAdministrativa
      * @return \Illuminate\Http\Response
      */
-    public function edit(UnidadeAdminstrativa $unidadeAdminstrativa)
+    public function edit(UnidadeAdministrativa $unidadeAdministrativa)
     {
         //
     }
@@ -71,11 +71,11 @@ class UnidadeAdminstrativaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateUnidadeAdminstrativaRequest  $request
-     * @param  \App\Models\UnidadeAdminstrativa  $unidadeAdminstrativa
+     * @param  \App\Http\Requests\UpdateUnidadeAdministrativaRequest  $request
+     * @param  \App\Models\UnidadeAdministrativa  $unidadeAdministrativa
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUnidadeAdminstrativaRequest $request, UnidadeAdminstrativa $unidadeAdminstrativa)
+    public function update(UpdateUnidadeAdministrativaRequest $request, UnidadeAdministrativa $unidadeAdministrativa)
     {
         //
     }
@@ -83,10 +83,10 @@ class UnidadeAdminstrativaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UnidadeAdminstrativa  $unidadeAdminstrativa
+     * @param  \App\Models\UnidadeAdministrativa  $unidadeAdministrativa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UnidadeAdminstrativa $unidadeAdminstrativa)
+    public function destroy(UnidadeAdministrativa $unidadeAdministrativa)
     {
         //
     }

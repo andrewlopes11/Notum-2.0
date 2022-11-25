@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    <form>
+    <form action="{{Route('participante.store')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -27,16 +29,13 @@
 
                     <div class="form-group">
                         <label for="ativo">Ativo</label>
-                        <select name="ativo" class="form-control" id="exampleFormControlSelect1">
-                            <option value="1">Sim</option>
-                            <option value="0">Não</option>
+                        <select name="ativo" class="form-control" id="ativo_participante">
+                            <option value="0">Sim</option>
+                            <option value="1">Não</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="atividade_id_participante">Atividade ID</label>
-                        <input name="atividade_id" type="text" class="form-control" id="atividade_id_participante" placeholder="Atividade ID">
-                    </div>
+                    <input type="hidden" name="atividade_id" value="1">
 
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
