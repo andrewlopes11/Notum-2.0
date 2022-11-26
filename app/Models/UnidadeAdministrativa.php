@@ -9,7 +9,7 @@ class UnidadeAdministrativa extends Model
 {
     use HasFactory;
 
-    protected $table = 'unidade_administrativa';
+    protected $table = 'unidade_administrativas';
 
-    protected $fillable = ['descricao', 'setor_id'];
+    protected $fillable = ['descricao'];
 }

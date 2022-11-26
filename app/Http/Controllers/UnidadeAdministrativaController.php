@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUnidadeAdministrativaRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateUnidadeAdministrativaRequest;
 use App\Models\UnidadeAdministrativa;
+use Illuminate\Routing\Route;
 
 class UnidadeAdministrativaController extends Controller
 {
@@ -15,7 +16,9 @@ class UnidadeAdministrativaController extends Controller
      */
     public function index()
     {
-        //
+        $unidade_administrativa = UnidadeAdministrativa::all()->sortBy('id');
+
+        return view('unidade_administrativa.unidade_administrativa_index', ['unidade_administrativa' => $unidade_administrativa]);
     }
 
     /**
@@ -34,12 +37,11 @@ class UnidadeAdministrativaController extends Controller
      * @param  \App\Http\Requests\StoreUnidadeAdministrativaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUnidadeAdministrativaRequest $request)
+    public function store(Request $request)
     {
-        $unidade_administrativa = new UnidadeAdminstrativa();
+        $unidade_administrativa = new UnidadeAdministrativa();
 
         $unidade_administrativa->descricao = $request->descricao;
-        $unidade_administrativa->setor_id = $request->setor_id;
 
         $unidade_administrativa->save();
 
@@ -63,9 +65,11 @@ class UnidadeAdministrativaController extends Controller
      * @param  \App\Models\UnidadeAdministrativa  $unidadeAdministrativa
      * @return \Illuminate\Http\Response
      */
-    public function edit(UnidadeAdministrativa $unidadeAdministrativa)
+    public function edit($id)
     {
-        //
+        $unidade_administrativa = UnidadeAdministrativa::findOrFail($id);
+
+        return view('unidade_administrativa.unidade_administrativa_edit', ['unidade_administrativa'=>$unidade_administrativa]);
     }
 
     /**
@@ -75,9 +79,16 @@ class UnidadeAdministrativaController extends Controller
      * @param  \App\Models\UnidadeAdministrativa  $unidadeAdministrativa
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUnidadeAdministrativaRequest $request, UnidadeAdministrativa $unidadeAdministrativa)
+    public function update(Request $request)
     {
-        //
+        $unidade_administrativa = UnidadeAdministrativa::findOrFail($request->id);
+
+        $unidade_administrativa->descricao = $request->descricao;
+
+        $unidade_administrativa->update();
+
+        return redirect(Route('unidade_administrativa.index'));
+
     }
 
     /**
@@ -86,8 +97,12 @@ class UnidadeAdministrativaController extends Controller
      * @param  \App\Models\UnidadeAdministrativa  $unidadeAdministrativa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UnidadeAdministrativa $unidadeAdministrativa)
+    public function delete(UnidadeAdministrativa $request)
     {
-        //
+        $unidade_administrativa = UnidadeAdministrativa::findOrFail($request->id);
+
+        $unidade_administrativa->delete();
+
+        return redirect(Route('unidade_administrativa.index'));
     }
 }

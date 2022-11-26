@@ -9,8 +9,8 @@ use \App\Http\Controllers\CertificadoModeloController;
 use \App\Http\Controllers\CertificadoController;
 use \App\Http\Controllers\TipoNaturezaController;
 use \App\Http\Controllers\AssinaturaController;
-use App\Http\Controllers\UnidadeAdminstrativaController;
-use App\Models\UnidadeAdministrativa;
+use App\Http\Controllers\UnidadeAdministrativaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -101,5 +101,5 @@ Route::put('/certificado/{id}/update', [CertificadoController::class, 'update'])
 Route::get('/certificado/delete/{id}', [CertificadoController::class, 'destroy'])->name('certificado.delete');
 
 
-Route::get('/unidade_administrativa',[UnidadeAdminstrativaController::class, 'create'])->name('unidade_administrativa.create');
-Route::post('/unidade_administrativa_store',[UnidadeAdminstrativaController::class, 'store'])->name('unidade_administrativa.store');
+Route::get('/unidade_administrativa',[UnidadeAdministrativaController::class, 'create'])->name('unidade_administrativa.create');
+Route::post('/unidade_administrativa_store',[UnidadeAdministrativaController::class, 'store'])->name('unidade_administrativa.store');
