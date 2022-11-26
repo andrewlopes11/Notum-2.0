@@ -15,7 +15,9 @@ class AcaoController extends Controller
      */
     public function index()
     {
-        //
+        $acao = Acao::all()->sortBy('id');
+
+        return view('acao.acao_index', ['acao' => $acao]);
     }
 
     /**
@@ -71,9 +73,13 @@ class AcaoController extends Controller
      * @param  \App\Models\Acao  $acao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Acao $acao)
+    public function edit($id)
     {
-        //
+
+        $acao = Acao::findOrFail($id);
+
+        return view('acao.acao_edit', ['acao' => $acao]);
+        
     }
 
     /**
@@ -83,9 +89,22 @@ class AcaoController extends Controller
      * @param  \App\Models\Acao  $acao
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAcaoRequest $request, Acao $acao)
+    public function update(Request $request)
     {
-        //
+
+        $acao = Acao::findOrFail($request->id);
+
+        $acao->natureza_id = $request->natureza_id;
+        $acao->usuario_id = $request->usuario_id;
+        $acao->titulo = $request->titulo;
+        $acao->data_inicio = $request->data_inicio;
+        $acao->data_fim = $request->data_fim;
+        $acao->status = $request->status;
+
+        $acao->update();
+
+        return redirect(Route('acao.index'));
+
     }
 
     /**
@@ -94,8 +113,13 @@ class AcaoController extends Controller
      * @param  \App\Models\Acao  $acao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Acao $acao)
+    public function delete($acao_id)
     {
-        //
+
+        $acao = Acao::findOrFail($acao_id);
+        $acao->delete();
+
+        return redirect(Route('acao.index'));
+
     }
 }

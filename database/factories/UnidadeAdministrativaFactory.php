@@ -18,9 +18,8 @@ class UnidadeAdministrativaFactory extends Factory
     {
         return [
 
-            "descricao" => $this->faker->name(),
-        
             'descricao' => $this->faker->text()
+            
         ];
     }
 }
