@@ -17,12 +17,10 @@ class UnidadeAdministrativaFactory extends Factory
     public function definition()
     {
         return [
-<<<<<<< HEAD:database/factories/UnidadeAdminstrativaFactory.php
+
             "descricao" => $this->faker->name(),
-            "setor_id" => $this->faker->integer()
-=======
-            'descricao' => $this->faker->text(),
->>>>>>> 61944fb86fc3f9c07041bf64002a03396dc41ad2:database/factories/UnidadeAdministrativaFactory.php
+        
+            'descricao' => $this->faker->text()
         ];
     }
 }
