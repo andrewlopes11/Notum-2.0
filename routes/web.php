@@ -10,7 +10,7 @@ use \App\Http\Controllers\CertificadoController;
 use \App\Http\Controllers\TipoNaturezaController;
 use \App\Http\Controllers\AssinaturaController;
 use App\Http\Controllers\UnidadeAdministrativaController;
-
+use App\Models\UnidadeAdministrativa;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +51,10 @@ Route::get('/atividade/{atividade_id}/delete', [AtividadeController::class, 'del
 
 Route::get('/acaos', [AcaoController::class, 'create'])->name('acao.create');
 Route::post('/acaos_store', [AcaoController::class, 'store'])->name('acao.store');
+Route::get('/acaos_index', [AcaoController::class, 'index'])->name('acao.index');
+Route::get('/acaos_edit/{acaos_id}', [AcaoController::class, 'edit'])->name('acao.edit');
+Route::post('/acaos_update', [AcaoController::class, 'update'])->name('acao.update');
+Route::get('/acaos/{acaos_id}/delete', [AaoController::class, 'delete'])->name('acao.delete');
 
 
 Route::get('/tipo_natureza/create', [TipoNaturezaController::class, 'create'])->name('tipo_natureza.create');
@@ -103,3 +107,7 @@ Route::get('/certificado/delete/{id}', [CertificadoController::class, 'destroy']
 
 Route::get('/unidade_administrativa',[UnidadeAdministrativaController::class, 'create'])->name('unidade_administrativa.create');
 Route::post('/unidade_administrativa_store',[UnidadeAdministrativaController::class, 'store'])->name('unidade_administrativa.store');
+Route::get('/unidade_administrativa_index', [UnidadeAdministrativaController::class, 'index'])->name('unidade_administrativa.index');
+Route::get('/unidade_administrativa_edit/{unidade_administrativa_id}', [UnidadeAdministrativaController::class, 'edit'])->name('unidade_administrativa.edit');
+Route::post('/unidade_administrativa_update', [UnidadeAdministrativaController::class, 'update'])->name('unidade_administrativa.update');
+Route::get('/unidade_administrativa/{unidade_administrativa_id}/delete', [UnidadeAdministrativaController::class, 'delete'])->name('unidade_administrativa.delete');
